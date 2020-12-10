@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美食</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var close = document.getElementById("close");
+			var cover = document.getElementById("cover");
+			var submit = document.getElementById("submit");
+			var name = document.getElementById("name");
+			var password = document.getElementById("password");
+			var random = document.getElementById("random");
+			var randomcover = document.getElementById("randomcover");
+			var close2 = document.getElementById("close2");
+			var choose = document.getElementById("choose");
+			var pic = document.getElementById("pic");
+			var arr = ["images/beef.png", "images/cake.png", "images/chicken.png", "images/coke.png", "images/feichang.png", "images/fish.png", "images/tofu.png", "images/larou.png"];
+			var flag = 0;
+			var id;
+			close.onclick = function(){
+				cover.style.display = "none";
+			}
+			submit.onclick = function(){
+				if(!name.value || !password.value){
+					alert("用户名和密码不能为空！");
+				}else{
+					cover.style.display = "none";
+					alert("登录成功！");
+				}
+			}
+			random.onclick = function(){
+				random.style.display = "none";
+				randomcover.style.display = "block";
+				window.scrollTo({
+					top:0,
+					behavior:"smooth",
+				});
+			}
+			close2.onclick = function(){
+				randomcover.style.display = "none";
+				random.style.display = "block";
+				choose.innerHTML = "开始挑选";
+				clearInterval(id);
+				flag = 0;
+			}
+			choose.onclick = function(){
+
+				if(!flag){
+					id = setInterval(function(){
+						var i = Math.floor(Math.random() * 8);
+						pic.src = arr[i];
+					}, 100);
+					choose.innerHTML = "停止";
+					flag = 1;
+				}else{
+					clearInterval(id);
+					flag = 0;
+					choose.innerHTML = "继续挑选";
+				}
+				
+			}	
+		}
+		
+	</script>
+	<div id="cover">
+		<div id="loginblock">
+			<div id="close">✖</div>
+			<ul>
+				<li id="li1">
+					用户名
+					<input type="text" name="" id="name" placeholder="手机号/邮箱">
+				</li>
+				<li>
+					密码
+					<input type="password" name="" id="password">
+				</li>
+				<li id="submit">登录</li>
+			</ul>
+			<div id="forget">忘记密码</div>
+			<div id="zhuce">注册账号</div>
+		</div>
+	</div>
+	<div id="random">不<br/>知<br/>道<br/>吃<br/>什<br/>么<br/>？<br/>点<br/>我<br/>！</div>
+	<div id="randomcover">
+		<div id="bro">
+			<span id="close2">✖</span>
+			<img src="images/chicken.png" id="pic"><br>
+			<span id="choose">开始挑选</span>
+		</div>
+	</div>
+	<div class="header">
+		<div class="container">
+			<img src="images/logo.png">
+			<ul class="nav">
+				<li><a href="1">首页</a></li>
+				<li><a href="1">菜谱</a></li>
+				<li><a href="1">饮食健康</a></li>
+				<li><a href="1">商城</a></li>
+			</ul>
+			<ul class="denglu">
+				<li><a href="" id="login">登录</a></li>
+				<li><a href="1">注册</a></li>
+			</ul>
+			<form>
+				<input type="text" placeholder="搜索菜谱、菜单、食材、用户" class="search">
+				<input type="button" class="submit">
+			</form>
+		</div>
+	</div>
+	<div class="banner">
+		<img src=images/banner.png>
+	</div>
+	<div class="jingxuan">
+		<div class="container">
+			<span class="left">每日精选菜谱</span>
+			<span class="right"><a href="1">更多></a></span>
+		</div>
+	</div>
+	<div class="food">
+		<div class="container">
+			<img src="images/beef.png" class="left" id="beef">
+			<img src="images/chicken.png">
+			<img src="images/cake.png">
+			<img src="images/coke.png">
+			<span class="yi">牛排</span>
+			<span class="er">炸鸡</span>
+			<span class="san">巧克力慕斯</span>
+			<span class="si">肥宅快乐水</span>
+
+			<img src="images/tofu.png" class="left">
+			<img src="images/fish.png">
+			<img src="images/feichang.png">
+			<img src="images/larou.png">
+			<span class="yii">豆腐炖肉</span>
+			<span class="err">鱼香肉丝</span>
+			<span class="sann">溜肥肠</span>
+			<span class="sii">窝头腊肉</span>
+		</div>
+	</div>
+	<div class="dajia">
+		<div class="container">
+			<div class="left">
+				<div class="top">
+					<span class="hot">热门食材</span>
+					<span class="more"><a href="1">更多></a></span>
+				</div>
+				<div class="bottom">
+					<img src="images/tudou.png">
+					<img src="images/niurou.png">
+					<img src="images/yu.png">
+					<img src="images/baicai.png">
+					<img src="images/qiezi.png">
+					<img src="images/baoyu.png">
+					<ul>
+						<li>土豆</li>
+						<li>牛肉</li>
+						<li>鱼</li>
+						<li>白菜</li>
+						<li>茄子</li>
+						<li>鲍鱼</li>
+					</ul>
+
+					<img src="images/shanyao.png">
+					<img src="images/shizi.png">
+					<img src="images/yangrou.png">
+					<img src="images/juhua.png">
+					<img src="images/xiangjiao.png">
+					<img src="images/banli.png">
+					<ul>
+						<li>山药</li>
+						<li>柿子</li>
+						<li>羊肉</li>
+						<li>菊花</li>
+						<li>香蕉</li>
+						<li>板栗</li>
+					</ul>
+				</div>
+			</div>
+			<div class="right">
+				<div class="shang">
+					<span class="meishi">美食达人</span>
+					<span class="gengduo"><a href="1">更多></a></span>
+				</div>
+				<div class="xia">
+					<ul>
+						<li>
+							<img src="images/meishitai.png">
+							<span>美食台</span>
+							<span class="guanzhu"><a href="1">+ 关注</a></span>
+						</li>
+						<li>
+							<img src="images/fanzhuo.png">
+							<span>桌饭</span>
+							<span class="guanzhu"><a href="1">+ 关注</a></span>
+						</li>
+						<li>
+							<img src="images/laoba.png">
+							<span>老八</span>
+							<span class="guanzhu"><a href="1">+ 关注</a></span>
+						</li>
+						<li>
+							<img src="images/fch.png">
+							<span>封晨慧</span>
+							<span class="guanzhu"><a href="1">+ 关注</a></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="end">
+		<ul>
+			<li>河北袁梦达瞎写的有限公司 冀ICP证111035号 冀公网安备 11010502038269号 冀ICP备09012778号</li>
+			<li>互联网药品信息服务资格证书</li>
+			<li>广播电视节目制作经营许可证（冀）字第15624号</li>
+		</ul>
+	</div>
+</body>
+</html>
